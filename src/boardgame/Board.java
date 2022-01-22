@@ -1,5 +1,7 @@
 package boardgame;
 
+import java.util.Optional;
+
 public class Board {
 	private int rows;
 	private int columns;
@@ -51,10 +53,11 @@ public class Board {
 		if (piece(position) == null) {
 			return null;
 		}
-		Piece aux = piece(position);
-		aux.position = null;
+		
+		Optional<Piece> aux = Optional.ofNullable(piece(position));
+		aux.get().position = null;
 		pieces[position.getRow()][position.getColumn()] = null;
-		return aux;
+		return aux.get();
 	}
 	
 	private boolean positionExists(int row, int column) {
