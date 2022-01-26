@@ -140,9 +140,9 @@ public class ChessMatch {
 			if (source.getColumn() != target.getColumn() && capturedPiece == null) {
 				Position pawnPosition;
 				if (p.getColor() == Color.WHITE) {
-					pawnPosition = new Position(target.getRow() + 1, target.getColumn());
-				} else {
 					pawnPosition = new Position(target.getRow() - 1, target.getColumn());
+				} else {
+					pawnPosition = new Position(target.getRow() + 1, target.getColumn());
 				}
 				capturedPiece = board.removePiece(pawnPosition);
 				capturedPieces.add(capturedPiece);
